@@ -6,7 +6,14 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
 const methodOverride = require('method-override');
-const indexRoutes = require('./routes/index');
+const indexRouter = require('./routes/index');
+const moodsRouter = require('./routes/moods');
+const notesRouter = require('./routes/notes');
+
+// console.log(process.env.GOOGLE_CLIENT_ID);
+// console.log(process.env.GOOGLE_SECRET);
+// console.log(process.env.GOOGLE_CALLBACK);
+
 // load the env consts
 require('dotenv').config();
 
@@ -31,6 +38,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 // mount the session middleware
+app.use('/moods', moodsRouter);
+app.use('/notes', notesRouter);
+app.use('/', indexRouter); //localhost:3000
+
 app.use(session({
   secret: process.env.SECRET,
   resave: false,
@@ -49,8 +60,8 @@ app.use(function (req, res, next) {
 });
 
 // mount all routes with appropriate base paths
-app.use('/', indexRoutes);
-
+app.use('/', indexRouter);
+// use your other routes here
 
 // invalid request, send 404 page
 app.use(function(req, res) {

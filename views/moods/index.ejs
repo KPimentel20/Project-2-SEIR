@@ -1,18 +1,19 @@
-<!-- write code to render a table of all moods like your flights index -->
-<!-- add an update button to each mood in the table -->
-<table id="list">
-    <thead>
-      <tr>
-        <th>Mood Journal</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% moods.forEach(function(m) { %>
-        <tr>
-          <td><%= m.moods %></td>
-          <td><a href="/moods/<%= m._id %>">RATE YOUR MOOD</a></td>
-        </tr>
-        <% }); %>
-      </tbody>
-    </table>
-    
+<%- include('partials/header') %>
+<!DOCTYPE html>
+<html>
+    <body>
+      <h1>Moods</h1>
+        <form id="new-form" action="/moods" method="POST">
+        <label> Moods
+      <select name="Moods">
+          <option value="1">Feeling Anxious</option>
+          <option value="2">Feeling Sad</option>
+          <option value="3">Feeling Optimistic</option>
+          <option value="3">Feeling Tired</option>
+      </select>     
+      </label>
+      <br>
+      <button type="submit">Submit</button>
+    </body>
+</html>
+<%- include('partials/footer') %>

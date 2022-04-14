@@ -1,31 +1,30 @@
-const express = require('express');
-const path = require('path');
-const logger = require('morgan');
-const cookieParser = require('cookie-parser');
+var express = require('express');
+var path = require('path');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
 // session middleware
-const session = require('express-session');
-const passport = require('passport');
-const methodOverride = require('method-override');
-const indexRouter = require('./routes/index');
-const moodsRouter = require('./routes/moods');
-const notesRouter = require('./routes/notes');
-
-// console.log(process.env.GOOGLE_CLIENT_ID);
-// console.log(process.env.GOOGLE_SECRET);
-// console.log(process.env.GOOGLE_CALLBACK);
+var session = require('express-session');
+var passport = require('passport');
+var methodOverride = require('method-override');
 
 // load the env consts
 require('dotenv').config();
 
 // create the Express app
-const app = express();
+var app = express();
 
 // connect to the MongoDB with mongoose
 require('./config/database');
 // configure Passport
 require('./config/passport');
 
+var indexRouter = require('./routes/index');
+var moodsRouter = require('./routes/moods');
+var notesRouter = require('./routes/notes');
 
+// console.log(process.env.GOOGLE_CLIENT_ID);
+// console.log(process.env.GOOGLE_SECRET);
+// console.log(process.env.GOOGLE_CALLBACK);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -38,9 +37,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 // mount the session middleware
-app.use('/', moodsRouter);
-app.use('/', notesRouter);
-app.use('/', indexRouter); //localhost:3000
 
 app.use(session({
   secret: process.env.SECRET,
@@ -60,7 +56,9 @@ app.use(function (req, res, next) {
 });
 
 // mount all routes with appropriate base paths
-// app.use('/', indexRouter);
+app.use('/', indexRouter); //localhost:3000
+app.use('/', moodsRouter);
+app.use('/', notesRouter);
 // use your other routes here
 
 // invalid request, send 404 page

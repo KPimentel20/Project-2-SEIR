@@ -1,24 +1,42 @@
 <%- include('partials/header') %>
 
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+
+  </head>
+  <body>
+
   <h1>Welcome to Mood Journal!</h1>
-  <h2>Let's Track Your Mood:</h2>
-    <body>
-      <h2>Mood Scale</h2>
-        <form id="new-form" action="/moods" method="POST">
-        <label> How do you feel, right now?
-      <select name="moods">
-          <option value="1">Anxious</option>
-          <option value="2">Sad</option>
-          <option value="3">Optimistic</option>
-          <option value="4">Tired</option>
-          <option value="5">Groovy</option>
-      </select>     
-      </label>
-      <br>
-      <button type="submit">Submit</button>
-      <button type="add note">Add A Note</button>
-    </body>
+  <p>If you are a user already, please log in above. If not, please sign up!</p>
+  <h2>Let's begin!</h2>
+  <button><a href="/moods">Track Mood:</a></button>
+  <table>
+    <thead>
+      <tr>
+        <th>Mood</th>
+        <th>User</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% moods.forEach(mood => { %>
+        <tr>
+          <td><%= mood.rating %></td>
+          <td><%= mood.user %></td>
+          <% mood.notes.forEach(note => { %>
+            <td><%= note.text %></td>
+          <% }); %>   
+          <td>
+            <a href="<%= mood._id %>/notes">Notes</a>
+          </td>
+        </tr>
+      <% }); %>     
+    </tbody>
+  </table>
+  </body>
+</html>
 
 <%- include('partials/footer') %>
 
-<!-- learn how to also do a form -->

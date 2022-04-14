@@ -38,8 +38,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 // mount the session middleware
-app.use('/moods', moodsRouter);
-app.use('/notes', notesRouter);
+app.use('/', moodsRouter);
+app.use('/', notesRouter);
 app.use('/', indexRouter); //localhost:3000
 
 app.use(session({

@@ -1,8 +1,37 @@
 const Note = require("../models/note");
+const Mood = require("../models/mood");
 
 module.exports = {
     create,
-    delete: deleteNote
+    new: newNote,
+    delete: deleteNote,
+    update
+}
+
+function create(req, res) {
+    Mood.findById(req.params.id, function (err, mood) {
+        console.log(mood, 'mood')
+        console.log(req.body, '< - req.body')
+        // req.body.user = req.user._id;
+        // req.body.userName = req.user.name;
+        mood.notes.push(req.body); //mutating a document
+        //we have to tell mongodb we changed the document, 
+        mood.save(function (err) {
+            console.log(mood);
+            //then we want to respond to the client!
+            //redirect them to a page, what page makes sense to redirect? 
+            res.redirect("/");
+        })
+    })
+}
+
+function newNote(req,res) {
+    Mood.findById(req.params.id, function (err, mood) {
+        res.render('notes/new', {
+            title: 'Notes',
+            mood
+        });
+    });
 }
 
 function deleteNote(req, res, next){
@@ -27,17 +56,15 @@ function deleteNote(req, res, next){
 
 }
 
-function create(req, res) {
-    Mood.findById({}, function (err, mood) {
-        req.body.user = req.user._id;
-        req.body.userName = req.user.name;
-        mood.notes.push(req.body); //mutating a document
-        //we have to tell mongodb we changed the document, 
-        mood.save(function (err) {
-            console.log(mood);
-            //then we want to respond to the client!
-            //redirect them to a page, what page makes sense to redirect? 
-            res.redirect(`/moods/${mood}`);
-        })
-    })
+function update(req, res) {
+    Mood.findOne({'notes._id': req.params.id}, function(err, mood) {
+        const note = mood.notes.id(req.params.id);
+        if (!noteSubdoc.userId.equals(req.user._id)) return res.redirect(`/moods/${mood_.id}`);
+        noteSubdoc.text = req.body.text;
+    mood.save(function(err) {
+        console.log(mood);
+        res.redirect(`/moods/${mood._id}`);
+
+    });
+    });
 }

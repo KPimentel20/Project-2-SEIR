@@ -4,8 +4,7 @@ const Mood = require("../models/mood");
 module.exports = {
     create,
     new: newNote,
-    delete: deleteNote,
-    update
+    delete: deleteNote
 }
 
 function create(req, res) {
@@ -56,15 +55,3 @@ function deleteNote(req, res, next){
 
 }
 
-function update(req, res) {
-    Mood.findOne({'notes._id': req.params.id}, function(err, mood) {
-        const note = mood.notes.id(req.params.id);
-        if (!noteSubdoc.userId.equals(req.user._id)) return res.redirect(`/moods/${mood_.id}`);
-        noteSubdoc.text = req.body.text;
-    mood.save(function(err) {
-        console.log(mood);
-        res.redirect(`/moods/${mood._id}`);
-
-    });
-    });
-}

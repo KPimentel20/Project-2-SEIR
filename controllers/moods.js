@@ -1,5 +1,14 @@
 const Mood = require("../models/mood");
 
+module.exports = {
+  index,
+  new: newMood,
+  create,
+  update,
+  updateMood
+}
+
+
 function index(req, res) {
   
 console.log(req.user, '< - req.user')
@@ -19,6 +28,30 @@ function newMood(req, res){
   res.render('moods/new')
 }
 
+function update(req, res) {
+  // Mood.findOne({'notes._id': req.params.id}, function(err, mood) {
+      // const noteSubdoc = mood.notes.id(req.params.id); //subdoc makes a variable that stores the notes
+      // if (!noteSubdoc.userId.equals(req.user._id)) return res.redirect(`/moods/${mood_.id}`);
+      // noteSubdoc.text = req.body.text;
+  Mood.findById(req.params.id, function (err, mood) { //put
+      //update here then save
+      
+      mood.save(function(err) {
+          console.log(mood);
+          res.redirect(`/moods/${mood._id}`);
+
+      });
+  });
+}
+// function update(req, res) {
+//     Skill.update(req.params.id, req.body);
+//     res.redirect("/skills");
+//   }
+
+function updateMood(req, res) {
+  res.render('moods/update');
+}
+
 function create(req, res) {
   console.log(req.body, '< - req.body')
   console.log(req.user, '< - req.user')
@@ -31,8 +64,4 @@ function create(req, res) {
   });
 }
 
-module.exports = {
-    index,
-    new: newMood,
-    create
-}
+

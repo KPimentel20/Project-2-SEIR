@@ -12,6 +12,8 @@ Visit my Trello: https://trello.com/b/uOjE5IFN/project-2-seir-trello
 
 Screenshots: 
 
+<img width="738" alt="Screen Shot 2022-04-15 at 12 05 47 PM" src="https://user-images.githubusercontent.com/101133073/163597336-e93df63f-7336-4c24-867d-53e8c517cb8e.png">
+
 <img width="1440" alt="Screen Shot 2022-04-15 at 11 24 18 AM" src="https://user-images.githubusercontent.com/101133073/163589309-5c52810c-8527-4e98-9ad2-d9b024864bb4.png">
 
 <img width="1050" alt="Screen Shot 2022-04-15 at 11 27 25 AM" src="https://user-images.githubusercontent.com/101133073/163589562-fb986944-2362-4c90-9bc1-19bf1faed531.png">

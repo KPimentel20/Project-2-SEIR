@@ -4,7 +4,9 @@ MoodJournal:
 MoodJournal is a mental health app where you can track your moods and follow which notes give you the best results for what you're feeling. In the app, you can also update your mood and add your own note to it, in case you feel differently or decide the note you want to implement a better note than the one you recieved. 
 
 Getting Started:
-Visit my app:
+
+Visit moodJournal here: https://github.com/KPimentel20/Project-2-SEIR.git
+
 Visit my Trello: https://trello.com/b/uOjE5IFN/project-2-seir-trello
 
 

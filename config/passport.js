@@ -1,7 +1,7 @@
 const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const User = require('../models/user')
 // new code below
-const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 // Finding the user document and passing to next link in middleware chain
 passport.use(
@@ -43,7 +43,6 @@ passport.serializeUser(function (user, cb) {
 passport.deserializeUser(function (userId, cb) {
     // finds User in db and assigns.... 
     User.findById(userId).then(function (user) {
-      if (err) return cb (err)
         cb(null, user); // this assigns the user document we just found to the request object
         // assigns the user to req.user
     });

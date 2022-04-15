@@ -5,7 +5,7 @@ module.exports = {
   new: newMood,
   create,
   update,
-  updateMood
+  edit
 }
 
 
@@ -29,16 +29,20 @@ function newMood(req, res){
 }
 
 function update(req, res) {
+      console.log("Am I even running?!")
   // Mood.findOne({'notes._id': req.params.id}, function(err, mood) {
       // const noteSubdoc = mood.notes.id(req.params.id); //subdoc makes a variable that stores the notes
       // if (!noteSubdoc.userId.equals(req.user._id)) return res.redirect(`/moods/${mood_.id}`);
       // noteSubdoc.text = req.body.text;
   Mood.findById(req.params.id, function (err, mood) { //put
       //update here then save
-      
+      mood.rating = req.body.rating
+      console.log(mood.rating)
+      console.log("This is my updated mood!")
       mood.save(function(err) {
+          console.log("This is my saved mood!")
           console.log(mood);
-          res.redirect(`/moods/${mood._id}`);
+          res.redirect("/");
 
       });
   });
@@ -48,8 +52,11 @@ function update(req, res) {
 //     res.redirect("/skills");
 //   }
 
-function updateMood(req, res) {
-  res.render('moods/update');
+function edit(req, res) { //req.query = sending it out
+  const moodId = req.params.id
+  console.log(moodId)
+  res.render('moods/update', {moodId});
+  
 }
 
 function create(req, res) {

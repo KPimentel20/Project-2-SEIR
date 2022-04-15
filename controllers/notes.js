@@ -34,24 +34,24 @@ function newNote(req,res) {
 }
 
 function deleteNote(req, res, next){
-    // Find the mood with the note!
-    Mood.findOne({'notes._id': req.params.id}, function(err, moodDocument){
+    //Find the mood with the note!
+    Mood.findOne({'notes._id': req.params.id}, function(err, mood){
         // find the subdocument itself, find the note in the moodDocument, that has the same id as our req.params.id
-        const note = moodDocument.notes.id(req.params.id);
+        const note = mood.notes.id(req.params.id);
         // If the review wasn't made by the user redirect them back to the same page
-        if(!note.user.equals(req.user._id)) return res.redirect(`/moods/${moodDocument._id}`);
+        if(!note.user.equals(req.user._id)) return res.redirect("/");
         // remove the note
         // 1 way find the note then call remove method
-        note.remove()
+        note.remove();
         // remove the note
         // moodDocument.notes.remove(req.params.id)
-        moodDocument.save(function(err){
+        mood.save(function(err){
         if(err) next(err); 
         // next(err) passes it to the express generator err handler
-        res.redirect(`/moods/${moodDocument._id}`)
+        res.redirect("/");
     })
 
     })
-
+    console.log("hello");
 }
 

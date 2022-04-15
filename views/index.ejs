@@ -1,13 +1,5 @@
 <%- include('partials/header') %>
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <link rel='stylesheet' href='/stylesheets/style.css'/>
-
-  </head>
-  <body>
-
   <h1>Welcome to Mood Journal!</h1>
   <p>If you are a user already, please log in above. If not, please sign up!</p>
   <h2>Let's begin!</h2>
@@ -32,7 +24,13 @@
             <a href="<%= mood._id %>/notes">Notes</a>
           </td>
           <td>
-            <a href="<%= mood._id %>/mood">Update Mood</a>
+            <form method="GET" action="<%= mood._id%>/mood">
+              <input type="hidden" value="<%= mood._id %>" name="mood"/>
+              <input type="submit" value="update mood"/> 
+            </form>
+            <form method="POST" action="/<%= mood._id %>?_method=DELETE">
+              <button type="submit">Delete</button>
+            </form>
           </td>
         </tr>
       <% }); %>     

@@ -3,8 +3,7 @@
     <h1>Rate your mood:</h1>
       <body>
         <h2>How do you feel?</h2>
-          <form id="new-form" action="/" method="POST">
-          <label> 
+          <form id="new-form" method="POST" action="/mood/<%=moodId%>?_method=PUT">
         <select name="rating">
             <option>Anxious</option>
             <option>Sad</option>
@@ -12,8 +11,8 @@
             <option>Tired</option>
             <option>Groovy</option>
         </select>     
-        </label>
         <br>
       <button type="submit">Save</button>
+      </form>
     </body>
 </html>

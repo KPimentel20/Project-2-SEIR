@@ -29,3 +29,8 @@
 .login img {
   height: 30px;
 }
+
+body {
+  background-color: aqua;
+  color: black;
+}

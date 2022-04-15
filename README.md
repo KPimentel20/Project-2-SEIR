@@ -27,7 +27,7 @@ Technologies Used:
 - Google Oauth 2.0
 - Passport
 - Express
-- MongoDB / Mongoose
+- MongoDB/MongoDB Atlas/ Mongoose
 - HTML
 - CSS
 - EJS

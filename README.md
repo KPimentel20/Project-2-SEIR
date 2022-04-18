@@ -16,11 +16,17 @@ Screenshots:
 
 <img width="1440" alt="Screen Shot 2022-04-15 at 11 24 18 AM" src="https://user-images.githubusercontent.com/101133073/163589309-5c52810c-8527-4e98-9ad2-d9b024864bb4.png">
 
-<img width="1050" alt="Screen Shot 2022-04-15 at 11 27 25 AM" src="https://user-images.githubusercontent.com/101133073/163589562-fb986944-2362-4c90-9bc1-19bf1faed531.png">
+<img width="1101" alt="Screen Shot 2022-04-18 at 6 13 39 PM" src="https://user-images.githubusercontent.com/101133073/163886513-5ae46350-95ca-4953-b2df-8cca84dd69b6.png">
 
-<img width="856" alt="Screen Shot 2022-04-15 at 12 49 12 AM" src="https://user-images.githubusercontent.com/101133073/163519866-d43f616e-c9d9-43e0-a656-e5d1bd567d1e.png">
+<img width="400" alt="Screen Shot 2022-04-18 at 6 15 07 PM" src="https://user-images.githubusercontent.com/101133073/163886919-46f9ce6b-38bc-4917-8c8f-784f1639478a.png">
+ 
+<img width="372" alt="Screen Shot 2022-04-18 at 6 14 33 PM" src="https://user-images.githubusercontent.com/101133073/163886951-f428866c-1513-4181-9c1e-35df4e08a628.png">
 
-<img width="818" alt="Screen Shot 2022-04-15 at 12 50 04 AM" src="https://user-images.githubusercontent.com/101133073/163519904-dd03e321-3c03-46e1-ad4a-e344993970f1.png">
+
+
+<img width="455" alt="Screen Shot 2022-04-18 at 6 14 55 PM" src="https://user-images.githubusercontent.com/101133073/163886958-33bf3ea8-6c1d-48c6-a11e-79f71668cef0.png">
+
+
 
 
 Technologies Used:
